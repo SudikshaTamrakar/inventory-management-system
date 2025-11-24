@@ -65,7 +65,11 @@
 
 <main>
     <div class="container p-4">
+        <h4 class="text-center p-2 class=" p-1" mt-2"
+        style="font-family:'Times New Roman', Times, serif; font-weight: bold;">Inventory Management
+        System</h4>
         <div class="head_section">
+
             <div class="row row-cols-1 row-cols-md-4 g-3">
                 <div class="col">
                     <a href="#exampleModalToggle1" data-bs-toggle="modal" role="button"
@@ -77,27 +81,27 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="#exampleModalToggle2" data-bs-toggle="modal" role="button"
-                       style="text-decoration: none; color: white;">
-                        <div class="card h-100 bg-primary">
-                            <div class="card-body">
-                                <h5 class="text-light"><i class="fa fa-area-chart"
-                                                          aria-hidden="true"></i>&nbsp;Update Product</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#exampleModalToggle3" data-bs-toggle="modal" role="button"
-                       style="text-decoration: none; color: white;">
-                        <div class="card h-100 bg-danger">
-                            <div class="card-body">
-                                <h5 class="text-light"><i class="fa fa-trash"></i>&nbsp;Delete Product</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+<!--                <div class="col">-->
+<!--                    <a href="#exampleModalToggle2" data-bs-toggle="modal" role="button"-->
+<!--                       style="text-decoration: none; color: white;">-->
+<!--                        <div class="card h-100 bg-primary">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="text-light"><i class="fa fa-area-chart"-->
+<!--                                                          aria-hidden="true"></i>&nbsp;Update Product</h5>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <a href="#exampleModalToggle3" data-bs-toggle="modal" role="button"-->
+<!--                       style="text-decoration: none; color: white;">-->
+<!--                        <div class="card h-100 bg-danger">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="text-light"><i class="fa fa-trash"></i>&nbsp;Delete Product</h5>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
                 <div class="col">
                     <a href="#deleteAllModal4" data-bs-toggle="modal" role="button"
                        style="text-decoration: none; color: white;">
@@ -114,8 +118,7 @@
         <div class="items_table mt-5 mb-4">
             <div class="table-responsive p-2">
                 <h4 class="text-center p-2 class=" p-1" mt-2"
-                style="font-family:'Times New Roman', Times, serif; font-weight: bold;">Inventory Management
-                System</h4>
+                style="font-family:'Times New Roman', Times, serif; font-weight: bold;">Inventories</h4>
                 <table class="table table-bordered table-hover mt-5">
                     <thead class="bg-warning">
 
@@ -135,21 +138,32 @@
                         <td th:text="${product.name}"></td>
                         <td th:text="${product.quantity}"></td>
                         <td th:text="${product.price}"></td>
-                        <td th:action="@{/update}" th:object="${product}" method="post">
-                            <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
-                                <p th:text="${errorMessage}"></p>
-                            </div>
+                           <td>
 
-                            <button type="submit" class="btn btn-primary mt-3 mb-2">Update Product</button>
+
+                            <div class="col">
+                                <a href="#exampleModalToggle2" data-bs-toggle="modal" role="button"
+                                                       style="text-decoration: none; color: white;">
+                                                        <div class="card h-100 bg-primary">
+                                                            <div class="card-body">
+                                                                <h5 class="text-light"><i class="fa fa-area-chart"
+                                                                                          aria-hidden="true"></i>&nbsp;Update Product</h5>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col">
+                                                    <a href="#exampleModalToggle3" data-bs-toggle="modal" role="button"
+                                                       style="text-decoration: none; color: white;">
+                                                        <div class="card h-100 bg-danger">
+                                                            <div class="card-body">
+                                                                <h5 class="text-light"><i class="fa fa-trash"></i>&nbsp;Delete Product</h5>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
                         </td>
-                        <td th:action="@{/remove}" th:object="${product}" method="post">
-                            <form class="p-2" th:action="@{/remove}" th:object="${product}" method="post">
-                                <!-- Alert message -->
-                                <div th:if="${alertMessage}" class="alert alert-danger">
-                                    <p th:text="${alertMessage}"></p>
-                                </div>
 
-                                <button type="submit" class="btn btn-danger mt-3 mb-2">Delete Product</button>
                             </form>
                         </td>
 
@@ -223,9 +237,10 @@
                         <h4 style="font-family: 'Times New Roman', Times, serif;">Update Product</h4>
                     </center>
 
-                    <div class="row p-1">
+
+                        <div class="row p-1">
                         <label class="p-1" for="id">Product ID</label>
-                        <input type="text" th:field="*{id}" class="form-control" placeholder="product id" required>
+                        <input type="text" th:text="*{id}" class="form-control" placeholder="product id" required>
                     </div>
 
                     <div class="row p-1">
